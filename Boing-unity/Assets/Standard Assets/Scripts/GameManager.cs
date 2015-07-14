@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour {
 
 	[Range(0, 1)]
 	public int playerID;
+	public GameObject cardboard;
 
 	private GameObject finder;
 	private GameObject ghost;
@@ -15,28 +16,21 @@ public class GameManager : MonoBehaviour {
 		finder = GameObject.FindGameObjectWithTag ("Finder");
 		ghost = GameObject.FindGameObjectWithTag ("Ghost");
 
-		Camera finderCamera = finder.transform.FindChild ("Head").FindChild ("Main Camera").GetComponent<Camera> ();
-		Camera ghostCamera = ghost.transform.FindChild("Head").FindChild("Main Camera").GetComponent<Camera>();
-		AudioListener finderListener = finder.transform.FindChild ("Head").FindChild ("Main Camera").GetComponent<AudioListener> ();
-		AudioListener ghostListener = ghost.transform.FindChild ("Head").FindChild ("Main Camera").GetComponent<AudioListener> ();
+		GameObject cardboardClone = Instantiate (cardboard);
 
 		//player is finder
 		if (playerID == 0) 
 		{
-			finderCamera.enabled = true;
-			finderListener.enabled = true;
-			ghostCamera.enabled = false;
-			ghostListener.enabled = false;
+			cardboardClone.transform.SetParent (finder.transform);
 		}
 
 		//player is ghost
 		else if (playerID == 1) 
 		{
-			finderCamera.enabled = false;
-			finderListener.enabled = false;
-			ghostCamera.enabled = true;
-			finderListener.enabled = true;
+			cardboardClone.transform.SetParent (ghost.transform);
 		}
+		cardboardClone.transform.localPosition = new Vector3(0,0,0);
+		cardboardClone.transform.localRotation = new Quaternion(0,0,0,0);
 	}
 	
 	// Update is called once per frame
