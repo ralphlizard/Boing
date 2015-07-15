@@ -22,12 +22,14 @@ public class GameManager : MonoBehaviour {
 		if (playerID == 0) 
 		{
 			cardboardClone.transform.SetParent (finder.transform);
+			finder.GetComponent<FinderController>().isPlayer = true;
 		}
 
 		//player is ghost
 		else if (playerID == 1) 
 		{
 			cardboardClone.transform.SetParent (ghost.transform);
+			ghost.GetComponent<GhostController>().isPlayer = true;
 		}
 		cardboardClone.transform.localPosition = new Vector3(0,0,0);
 		cardboardClone.transform.localRotation = new Quaternion(0,0,0,0);
