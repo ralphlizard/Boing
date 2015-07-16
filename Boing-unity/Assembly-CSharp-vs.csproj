@@ -70,6 +70,7 @@
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\VRDevice.cs" />
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\iOSVRDevice.cs" />
      <Compile Include="Assets\Scripts\FinderController.cs" />
+     <Compile Include="Assets\Scripts\FollowCamera.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\GhostController.cs" />
      <None Include="Assets\Cardboard\Legacy\Resources\SkyboxMesh.shader" />
