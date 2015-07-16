@@ -8,6 +8,7 @@ public class FinderController : MonoBehaviour {
 	public float mouseSensitivity = 5.0f;
 	public float upDownRange = 60.0f;
 
+	private float rotLeftRight;
 	private float verticalRotation = 0;
 	private CharacterController cc;
 	private Vector3 speed;
@@ -22,12 +23,13 @@ public class FinderController : MonoBehaviour {
 	void Update () {
 
 		if (isPlayer) {
-			float rotLeftRight = Input.GetAxis ("Mouse X") * mouseSensitivity;
+
+			rotLeftRight += Input.GetAxis ("Mouse X") * mouseSensitivity;
 
 			verticalRotation -= Input.GetAxis ("Mouse Y") * mouseSensitivity;
 			verticalRotation = Mathf.Clamp (verticalRotation, -upDownRange, upDownRange);
-			Camera.main.transform.localRotation = Quaternion.Euler (verticalRotation, Camera.main.transform.eulerAngles.y, 0);
-			Camera.main.transform.Rotate (0, rotLeftRight, 0);
+			Camera.main.transform.localRotation = Quaternion.Euler (verticalRotation, rotLeftRight, 0);
+//			Camera.main.transform.Rotate (0, rotLeftRight, 0);
 
 			//Movement
 			float forwardSpeed = Input.GetAxis ("Vertical") * movementSpeed;
