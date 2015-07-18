@@ -2,16 +2,16 @@
 using System.Collections;
 
 public class FinderController : MonoBehaviour {
-
+	
 	public bool isPlayer;
 	public float movementSpeed = 10.0f;
 	public float mouseSensitivity = 5.0f;
 	public float upDownRange = 60.0f;
-
+	
 	private float verticalRotation = 0;
 	private CharacterController cc;
 	private Vector3 speed;
-
+	
 	// Use this for initialization
 	void Start () {
 		Screen.lockCursor = true;
@@ -20,18 +20,17 @@ public class FinderController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		
 		if (isPlayer) {
-
+			
 			Transform head = Camera.main.transform.parent;
-
+			
 			//mobile
 			if (Application.isMobilePlatform)
 			{
 				Quaternion rot = Cardboard.SDK.HeadPose.Orientation;
-//				head.localRotation = new Quaternion (rot.x, rot.y, rot.z, rot.w);
-//				transform.rotation = new Quaternion (0, rot.y, 0, 0);
-				transform.rotation = rot;
+				head.localRotation = Quaternion.Euler (rot.eulerAngles.x, 0, 0);
+				transform.localRotation = Quaternion.Euler (0, rot.eulerAngles.y, rot.eulerAngles.z);
 			}
 			//pc testing
 			else
@@ -39,19 +38,19 @@ public class FinderController : MonoBehaviour {
 				verticalRotation -= Input.GetAxis ("Mouse Y") * mouseSensitivity;
 				verticalRotation = Mathf.Clamp (verticalRotation, -upDownRange, upDownRange);
 				head.localRotation = Quaternion.Euler (verticalRotation, 0, 0);
-
+				
 				float rotLeftRight = Input.GetAxis ("Mouse X") * mouseSensitivity;
 				transform.Rotate (0, rotLeftRight, 0);
 			}
-
+			
 			//Movement
 			float forwardSpeed = Input.GetAxis ("Vertical") * movementSpeed;
 			float sideSpeed = Input.GetAxis ("Horizontal") * movementSpeed;
-
+			
 			speed = new Vector3 (sideSpeed, 0, forwardSpeed);
 			speed = transform.rotation * speed;
 		}
-
+		
 		cc.SimpleMove (speed);
 	}
 }
