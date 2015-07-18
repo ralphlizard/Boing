@@ -11,32 +11,45 @@ public class GhostController : MonoBehaviour {
 	private float verticalRotation = 0;
 	private CharacterController cc;
 	private Vector3 speed;
-	
+	private Transform head;
+
 	// Use this for initialization
 	void Start () {
 		Screen.lockCursor = true;
 		cc = GetComponent<CharacterController> ();	
+		head = transform.FindChild("CardboardMain").FindChild("Head");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
 		if (isPlayer) {
-			float rotLeftRight = Input.GetAxis ("Mouse X") * mouseSensitivity;
-			verticalRotation -= Input.GetAxis ("Mouse Y") * mouseSensitivity;
-			verticalRotation = Mathf.Clamp (verticalRotation, -upDownRange, upDownRange);
-
-			transform.Rotate (0, rotLeftRight, 0);
-			transform.localRotation = Quaternion.Euler (verticalRotation, transform.eulerAngles.y, 0);
-		
+			
+			//mobile
+			if (Application.isMobilePlatform)
+			{
+				Quaternion rot = Cardboard.SDK.HeadPose.Orientation;
+				transform.localRotation = rot;
+			}
+			//pc testing
+			else
+			{
+				float rotLeftRight = Input.GetAxis ("Mouse X") * mouseSensitivity;
+				verticalRotation -= Input.GetAxis ("Mouse Y") * mouseSensitivity;
+				verticalRotation = Mathf.Clamp (verticalRotation, -upDownRange, upDownRange);
+				
+				transform.Rotate (0, rotLeftRight, 0);
+				transform.localRotation = Quaternion.Euler (verticalRotation, transform.eulerAngles.y, 0);
+			}
+			
 			//Movement
 			float forwardSpeed = Input.GetAxis ("Vertical") * movementSpeed;
 			float sideSpeed = Input.GetAxis ("Horizontal") * movementSpeed;
-		
+			
 			speed = new Vector3 (sideSpeed, 0, forwardSpeed);
-			speed = transform.rotation * speed;
-
+			speed = transform.rotation * speed * 0.01f;
 		}
+		
 		cc.Move (speed);
 	}
 }

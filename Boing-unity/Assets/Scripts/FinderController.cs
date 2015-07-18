@@ -11,26 +11,27 @@ public class FinderController : MonoBehaviour {
 	private float verticalRotation = 0;
 	private CharacterController cc;
 	private Vector3 speed;
+	private Transform head;
 	
 	// Use this for initialization
 	void Start () {
 		Screen.lockCursor = true;
 		cc = GetComponent<CharacterController> ();
+		head = transform.FindChild("CardboardMain").FindChild("Head");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 		if (isPlayer) {
-			
-			Transform head = Camera.main.transform.parent;
-			
+
 			//mobile
 			if (Application.isMobilePlatform)
 			{
 				Quaternion rot = Cardboard.SDK.HeadPose.Orientation;
-				head.localRotation = Quaternion.Euler (rot.eulerAngles.x, 0, 0);
-				transform.localRotation = Quaternion.Euler (0, rot.eulerAngles.y, rot.eulerAngles.z);
+				head.localRotation = rot;
+				head.localRotation = Quaternion.Euler (rot.eulerAngles.x, 0, rot.eulerAngles.z);
+				transform.localRotation = Quaternion.Euler (0, rot.eulerAngles.y, 0);
 			}
 			//pc testing
 			else

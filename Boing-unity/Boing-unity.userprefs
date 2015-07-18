@@ -1,12 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\FinderController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GhostController.cs">
     <Files>
-      <File FileName="Assets\Scripts\FinderController.cs" Line="32" Column="60" />
+      <File FileName="Assets\Scripts\FinderController.cs" Line="52" Column="38" />
       <File FileName="Assets\Cardboard\Scripts\Cardboard.cs" Line="69" Column="2" />
-      <File FileName="Assets\Cardboard\Scripts\CardboardHead.cs" Line="61" Column="3" />
-      <File FileName="Assets\Scripts\GameManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GhostController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="19" Column="3" />
+      <File FileName="Assets\Scripts\GhostController.cs" Line="50" Column="46" />
+      <File FileName="Assets\Scripts\FollowCamera.cs" Line="22" Column="40" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
