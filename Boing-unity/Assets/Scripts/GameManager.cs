@@ -17,26 +17,23 @@ public class GameManager : MonoBehaviour {
 		finder = GameObject.FindGameObjectWithTag ("Finder");
 		ghost = GameObject.FindGameObjectWithTag ("Ghost");
 
+		GameObject cardboardClone = Instantiate (cardboard);
 
 		//player is finder
 		if (playerID == 0) 
 		{
-			GameObject cardboardClone = Instantiate (finderCardboard);
 			cardboardClone.transform.SetParent (finder.transform);
 			finder.GetComponent<FinderController>().isPlayer = true;
-			cardboardClone.transform.localPosition = new Vector3(0,0,0);
-			cardboardClone.transform.localRotation = new Quaternion(0,0,0,0);
 		}
 
 		//player is ghost
 		else if (playerID == 1) 
 		{
-			GameObject cardboardClone = Instantiate (cardboard);
 			cardboardClone.transform.SetParent (ghost.transform);
 			ghost.GetComponent<GhostController>().isPlayer = true;
-			cardboardClone.transform.localPosition = new Vector3(0,0,0);
-			cardboardClone.transform.localRotation = new Quaternion(0,0,0,0);
 		}
+		cardboardClone.transform.localPosition = new Vector3(0,0,0);
+		cardboardClone.transform.localRotation = new Quaternion(0,0,0,0);
 	}
 	
 	// Update is called once per frame
