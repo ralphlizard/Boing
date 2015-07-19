@@ -11,13 +11,11 @@ public class GhostController : MonoBehaviour {
 	private float verticalRotation = 0;
 	private CharacterController cc;
 	private Vector3 speed;
-	private Transform head;
 
 	// Use this for initialization
 	void Start () {
 		Screen.lockCursor = true;
 		cc = GetComponent<CharacterController> ();	
-		head = transform.FindChild("CardboardMain").FindChild("Head");
 	}
 	
 	// Update is called once per frame

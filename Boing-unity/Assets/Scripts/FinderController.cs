@@ -26,16 +26,14 @@ public class FinderController : MonoBehaviour {
 		if (isPlayer) {
 
 			//mobile
-			if (Application.isMobilePlatform)
-			{
+			if (Application.isMobilePlatform) {
 				Quaternion rot = Cardboard.SDK.HeadPose.Orientation;
 				head.localRotation = rot;
 				head.localRotation = Quaternion.Euler (rot.eulerAngles.x, 0, rot.eulerAngles.z);
 				transform.localRotation = Quaternion.Euler (0, rot.eulerAngles.y, 0);
 			}
 			//pc testing
-			else
-			{
+			else {
 				verticalRotation -= Input.GetAxis ("Mouse Y") * mouseSensitivity;
 				verticalRotation = Mathf.Clamp (verticalRotation, -upDownRange, upDownRange);
 				head.localRotation = Quaternion.Euler (verticalRotation, 0, 0);
@@ -50,8 +48,12 @@ public class FinderController : MonoBehaviour {
 			
 			speed = new Vector3 (sideSpeed, 0, forwardSpeed);
 			speed = transform.rotation * speed;
+			OSCHandler.Instance.SendMessageToClient ("Ghost", "/verticalRotation", verticalRotation);
+		} 
+
+		else {
+//			OSCHandler.Instance.
 		}
-		
 		cc.SimpleMove (speed);
 	}
 }

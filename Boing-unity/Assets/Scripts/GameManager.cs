@@ -14,8 +14,12 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
+		//settings for phone usage
 		Screen.sleepTimeout = SleepTimeout.NeverSleep;
 		Screen.orientation = ScreenOrientation.LandscapeLeft;
+
+		//OSC initialization
+		OSCHandler.Instance.Init (playerID);
 
 		finder = GameObject.FindGameObjectWithTag ("Finder");
 		ghost = GameObject.FindGameObjectWithTag ("Ghost");
@@ -43,6 +47,6 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		OSCHandler.Instance.UpdateLogs();
 	}
 }

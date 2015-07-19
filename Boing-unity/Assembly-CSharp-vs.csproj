@@ -69,6 +69,12 @@
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\UnityEditorDevice.cs" />
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\VRDevice.cs" />
      <Compile Include="Assets\Cardboard\Scripts\VRDevices\iOSVRDevice.cs" />
+     <Compile Include="Assets\OSC\OSCBundle.cs" />
+     <Compile Include="Assets\OSC\OSCClient.cs" />
+     <Compile Include="Assets\OSC\OSCHandler.cs" />
+     <Compile Include="Assets\OSC\OSCMessage.cs" />
+     <Compile Include="Assets\OSC\OSCPacket.cs" />
+     <Compile Include="Assets\OSC\OSCServer.cs" />
      <Compile Include="Assets\Scripts\FPSDisplay.cs" />
      <Compile Include="Assets\Scripts\FinderController.cs" />
      <Compile Include="Assets\Scripts\FollowCamera.cs" />
