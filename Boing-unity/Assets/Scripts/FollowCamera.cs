@@ -9,29 +9,16 @@ public class FollowCamera : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		FindFinder ();
+		finder = GameObject.FindGameObjectWithTag("Finder").transform;
+		finderHead = finder.FindChild ("CardboardMain").FindChild ("Head");
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		FindFinder ();
+		float x = Mathf.LerpAngle (transform.eulerAngles.x, finderHead.eulerAngles.x, speed);
+		float y = Mathf.LerpAngle (transform.eulerAngles.y, finder.eulerAngles.y, speed);
 
-		if (finder != null) {
-			float x = Mathf.LerpAngle (transform.eulerAngles.x, finderHead.eulerAngles.x, speed);
-			float y = Mathf.LerpAngle (transform.eulerAngles.y, finder.eulerAngles.y, speed);
-
-			transform.eulerAngles = new Vector3 (x, y, 0);
-			transform.position = finder.position;
-		}
-	}
-
-	void FindFinder () {
-		if (finder == null) {
-			if (GameObject.FindGameObjectWithTag ("Finder") != null)
-			{
-				finder = GameObject.FindGameObjectWithTag ("Finder").transform;
-				finderHead = finder.FindChild ("CardboardMain").FindChild ("Head");
-			}
-		}
+		transform.eulerAngles = new Vector3(x, y, 0);
+		transform.position = finder.position;
 	}
 }
