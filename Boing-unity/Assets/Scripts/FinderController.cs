@@ -1,18 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class FinderController : MonoBehaviour {
+public class FinderController : NetworkBehaviour {
 	
-	public bool isPlayer;
 	public float movementSpeed = 10.0f;
 	public float mouseSensitivity = 5.0f;
 	public float upDownRange = 60.0f;
 	
-	private float verticalRotation = 0;
 	private CharacterController cc;
+	private float verticalRotation = 0;
 	private Vector3 speed;
 	private Transform head;
-	
+
+	[SyncVar] //synced variables
+	public int health = 100;
+
 	// Use this for initialization
 	void Start () {
 		Screen.lockCursor = true;
@@ -22,8 +25,7 @@ public class FinderController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-		if (isPlayer) {
+		if (isLocalPlayer) {
 
 			//mobile
 			if (Application.isMobilePlatform) {
@@ -48,12 +50,10 @@ public class FinderController : MonoBehaviour {
 			
 			speed = new Vector3 (sideSpeed, 0, forwardSpeed);
 			speed = transform.rotation * speed;
-			OSCHandler.Instance.SendMessageToClient ("Ghost", "/verticalRotation", verticalRotation);
+			cc.SimpleMove (speed);
 		} 
-
-		else {
-//			OSCHandler.Instance.
-		}
-		cc.SimpleMove (speed);
 	}
+
+	//[Command] 
+	//RPC start with Cmd
 }

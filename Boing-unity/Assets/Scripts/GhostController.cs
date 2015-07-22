@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.Networking;
 
-public class GhostController : MonoBehaviour {
+public class GhostController : NetworkBehaviour {
 	
-	public bool isPlayer;
 	public float movementSpeed = 10.0f;
 	public float mouseSensitivity = 5.0f;
 	public float upDownRange = 60.0f;
@@ -21,7 +21,7 @@ public class GhostController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (isPlayer) {
+		if (isLocalPlayer) {
 			
 			//mobile
 			if (Application.isMobilePlatform)
