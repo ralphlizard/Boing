@@ -1,27 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.Networking;
 
-public class GhostController : NetworkBehaviour {
+public class GhostController : MonoBehaviour {
 	
+	public bool isPlayer;
 	public float movementSpeed = 10.0f;
 	public float mouseSensitivity = 5.0f;
 	public float upDownRange = 60.0f;
+	public bool roundStarted;
 
 	private float verticalRotation = 0;
 	private CharacterController cc;
 	private Vector3 speed;
+	private Transform head;
 
 	// Use this for initialization
 	void Start () {
-		Screen.lockCursor = true;
 		cc = GetComponent<CharacterController> ();	
+		head = transform.FindChild("CardboardMain").FindChild("Head");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (isLocalPlayer) {
+		if (isPlayer) {
 			
 			//mobile
 			if (Application.isMobilePlatform)
@@ -47,7 +49,8 @@ public class GhostController : NetworkBehaviour {
 			speed = new Vector3 (sideSpeed, 0, forwardSpeed);
 			speed = transform.rotation * speed * 0.01f;
 		}
-		
-		cc.Move (speed);
+
+		if (roundStarted)
+			cc.Move (speed);
 	}
 }

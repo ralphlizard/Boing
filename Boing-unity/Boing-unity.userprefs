@@ -1,5 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+<<<<<<< HEAD
   <MonoDevelop.Ide.Workbench ActiveDocument="../../politics-faces-places-unity/PoliticsFaces/Assets/Standard Assets/Scripts/StatueManipulation/LeapControl.cs">
     <Files>
       <File FileName="Assets/Cardboard/Scripts/CardboardHead.cs" Line="69" Column="1" />
@@ -9,6 +10,15 @@
       <File FileName="Assets/Scripts/FollowCamera.cs" Line="37" Column="2" />
       <File FileName="../../politics-faces-places-unity/PoliticsFaces/Assets/Plugins/OSCHandler.cs" Line="1" Column="1" />
       <File FileName="../../politics-faces-places-unity/PoliticsFaces/Assets/Standard Assets/Scripts/StatueManipulation/LeapControl.cs" Line="1" Column="1" />
+=======
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GhostController.cs">
+    <Files>
+      <File FileName="Assets\Scripts\FinderController.cs" Line="52" Column="38" />
+      <File FileName="Assets\Cardboard\Scripts\Cardboard.cs" Line="69" Column="2" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="19" Column="3" />
+      <File FileName="Assets\Scripts\GhostController.cs" Line="50" Column="46" />
+      <File FileName="Assets\Scripts\FollowCamera.cs" Line="22" Column="40" />
+>>>>>>> 71b1c23682a23d0f573ac8adde5a6e976f247858
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
