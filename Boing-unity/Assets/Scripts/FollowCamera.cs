@@ -12,7 +12,7 @@ public class FollowCamera : MonoBehaviour {
 		finder = GameObject.FindGameObjectWithTag("Finder").transform;
 		finderHead = finder.FindChild ("CardboardMain").FindChild ("Head");
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		float x = Mathf.LerpAngle (transform.eulerAngles.x, finderHead.eulerAngles.x, speed);
