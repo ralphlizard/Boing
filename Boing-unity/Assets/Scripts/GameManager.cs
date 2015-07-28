@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour {
 	[Range(0, 1)]
 	public int playerID;
 	public bool roundStarted;
+	public int maxItems = 1;
 	public int numItems;
 	public GameObject tutorial;
 
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour {
 		ghostDetection.roundStarted = roundStarted;
 
 		//instantiate items
+		maxItems = 1;
 		numItems = 1;
 	}
 
@@ -65,8 +67,8 @@ public class GameManager : MonoBehaviour {
 		print ("Round over");
 		roundStarted = false;
 		ghost.GetComponent<GhostScript> ().roundStarted = roundStarted;
-		finder.GetComponent<FinderController> ().roundStarted = roundStarted;
 		ghostDetection.roundStarted = roundStarted;
+		ghost.GetComponent<GhostScript> ().KillPlayer ();
 	}
 
 	public void FinderWin() {

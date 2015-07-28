@@ -8,6 +8,7 @@ public class FinderController : MonoBehaviour {
 	public float upDownRange = 60.0f;
 	public bool roundStarted;
 	public float health;
+	public bool godMode;
 
 	private Quaternion initAngle;
 	private float verticalRotation = 0;
@@ -31,7 +32,6 @@ public class FinderController : MonoBehaviour {
 			CheckTurn ();
 		else 
 		{
-//			CheckWin();
 			CheckLose();
 		}
 	}
@@ -40,7 +40,7 @@ public class FinderController : MonoBehaviour {
 	{
 		if (health <= 0)
 		{
-//			gameManager.GetComponent<GameManager>().GhostWin();
+			gameManager.GetComponent<GameManager>().GhostWin();
 		}
 	}
 
@@ -56,11 +56,13 @@ public class FinderController : MonoBehaviour {
 	}
 
 	//coneprox is how close ghost is to center of light cone
-	//
-	public void TakeDamage(float coneProx)
+	//bodyprox is how close to the player
+	public void TakeDamage(float coneProx, float bodyProx)
 	{
-		print (health);
-		health -= Time.deltaTime * (10 + coneProx);
+		float damage = Time.deltaTime * coneProx * bodyProx;
+		print (damage);
+		if (!godMode)
+			health -= damage;
 	}
 
 	void Control() {
