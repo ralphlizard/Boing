@@ -1,22 +1,22 @@
 fileFormatVersion: 2
-guid: bc124296e36ce7a4abae5a3207094338
-timeCreated: 1438114559
+guid: f6e5b6a17e6aa7d49823926964054d28
+timeCreated: 1438118931
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
     100000: //RootNode
-    100002: husk
-    100004: mask
+    100002: bot:husk
+    100004: bot:mask
     400000: //RootNode
-    400002: husk
-    400004: mask
-    2300000: husk
-    2300002: mask
-    3300000: husk
-    3300002: mask
-    4300000: mask
-    4300002: husk
+    400002: bot:husk
+    400004: bot:mask
+    2300000: bot:husk
+    2300002: bot:mask
+    3300000: bot:husk
+    3300002: bot:mask
+    4300000: bot:mask
+    4300002: bot:husk
     9500000: //RootNode
   materials:
     importMaterials: 1

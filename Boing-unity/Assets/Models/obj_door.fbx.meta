@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: e6e28cac8ee5cd94aa314c17ede6b27a
-timeCreated: 1438115024
+guid: 63c7c25c7a7e6da4a9fb0540e2a8d9d9
+timeCreated: 1438118931
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: control_panel_front
+    4300000: obj_door:door_01
     9500000: //RootNode
   materials:
     importMaterials: 1

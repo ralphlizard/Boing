@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 09b6e2f88f8a6ba409f65b461e7b94a6
-timeCreated: 1438115029
+guid: 62e169f6dcd6c7647ba3f60d0413310a
+timeCreated: 1438118841
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: door_01
+    4300000: obj_trashcan:trashcan_02
     9500000: //RootNode
   materials:
     importMaterials: 1

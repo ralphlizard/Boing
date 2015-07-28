@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: a8ccf8c3638439047b1f951997208c3f
-timeCreated: 1438115033
+guid: 544fe62b361777a4ab4194fdbaa143cf
+timeCreated: 1438118931
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -9,7 +9,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: tank_02
+    4300000: obj_gastank:tank_02
     9500000: //RootNode
   materials:
     importMaterials: 1
